@@ -1,18 +1,4 @@
-# PulseEditor
-PulseEditor Lumi editor de texto online com tema escuro, música ambiente, cronômetro Pomodoro e um gerador de orçamentos integrado. Hospedado no GitHub Pages e acessível via Google Sites. Tudo funciona localmente com Local Storage.
-# PulseEditor
-Um editor de texto online com tema escuro, música ambiente, cronômetro Pomodoro e um gerador de orçamentos integrado. Hospedado no GitHub Pages e acessível via Google Sites. Tudo funciona localmente com Local Storage.
-
-## Funcionalidades
-- Editor de texto com 15+ fontes e exportação em PDF, .txt e .docx.
-- Música ambiente e imagem de fundo personalizável.
-- Modo Zen e temas (escuro, claro, azul, verde).
-- Orçamento com registro de empresa, cliente, fornecedor, itens e envio por e-mail/WhatsApp.
-
-## Como Usar
-1. Abra o link hospedado no GitHub Pages.
-2. Use o editor ou clique em "Orçamento" para criar orçamentos.
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -115,8 +101,7 @@ Um editor de texto online com tema escuro, música ambiente, cronômetro Pomodor
     </div>
     <script src="script.js"></script>
 </body>
-</html>
-body {
+</html>body {
     background: #1a1a1a url('assets/background.jpg') no-repeat center/cover;
     color: #fff;
     font-family: 'Roboto', sans-serif;
@@ -204,8 +189,7 @@ button:hover {
 
 /* Modo Zen */
 .zen #toolbar, .zen #budgetPanel, .zen #pomodoroTimer { display: none; }
-.zen #editor { background: transparent; }
-// Editor
+.zen #editor { background: transparent; }// Editor
 function changeFont() {
     const font = document.getElementById('fontSelect').value;
     document.getElementById('editor').style.fontFamily = font;
@@ -396,8 +380,7 @@ window.onload = function() {
         document.getElementById('logoPreview').src = savedLogo;
         document.getElementById('logoPreview').style.display = 'block';
     }
-};
-function previewBudget() {
+};function previewBudget() {
     const budget = JSON.parse(localStorage.getItem('pulseEditorBudget') || '{}');
     const text = `
         <h2>Orçamento - ${budget.company?.name || 'PulseEditor'}</h2>
@@ -417,8 +400,7 @@ function previewBudget() {
     `;
     document.getElementById('editor').innerHTML = text;
     saveEditor();
-}
-function generateBudgetPDF() {
+}function generateBudgetPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     const budget = JSON.parse(localStorage.getItem('pulseEditorBudget') || '{}');
